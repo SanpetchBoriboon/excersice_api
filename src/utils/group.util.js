@@ -1,4 +1,4 @@
-function mapGrop(data) {
+function mapDataGrop(data) {
   const result = data.map((group) => {
     return {
       group_id: group._id,
@@ -8,4 +8,4 @@ function mapGrop(data) {
   return result;
 }
 
-module.exports = { mapGrop };
+module.exports = { mapDataGrop };

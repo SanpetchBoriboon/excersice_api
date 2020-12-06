@@ -1,6 +1,6 @@
-const { mapGrop } = require("./group.util");
+const { mapDataGrop } = require("./group.util");
 
-describe("mapGrop", () => {
+describe("mapDataGrop", () => {
   it("should map data of group", () => {
     const mock_data = [
       {
@@ -47,7 +47,7 @@ describe("mapGrop", () => {
       { group_id: "5fcb34e9ffac10063d4adad5", group_name: "G4" },
     ];
 
-    const actual_data = mapGrop(mock_data);
+    const actual_data = mapDataGrop(mock_data);
 
     expect(actual_data).toEqual(expected_data);
   });

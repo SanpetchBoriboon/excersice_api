@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
     if (!data) {
       return res.status(http.NOT_FOUND).send([]);
     }
-    const payload = groupUtil.mapGrop(data);
+    const payload = groupUtil.mapDataGrop(data);
     res.status(http.OK).send(payload);
   } catch (error) {
     res.status(http.BAD_REQUEST).send(error);
