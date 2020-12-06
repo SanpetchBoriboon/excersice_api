@@ -3,7 +3,9 @@ const http = require("http-status");
 const GroupModel = require("../models/group.model");
 const MemberModel = require("../models/member.model");
 
-const { mapDataMember, findAvgScore, findMaxMinScore } = require("../utils");
+const { memberUtil } = require("../utils");
+
+const { mapDataMember, findAvgScore, findMaxMinScore } = memberUtil;
 
 router.get("/get_all_member_group", async (req, res, next) => {
   try {
@@ -17,7 +19,7 @@ router.get("/get_all_member_group", async (req, res, next) => {
     const payload = {
       group_member: members,
     };
-    res.status(http.OK).send(payload);
+    res.status(http.OK).send(members);
   } catch (error) {
     res.status(http.BAD_REQUEST).send(error);
   }

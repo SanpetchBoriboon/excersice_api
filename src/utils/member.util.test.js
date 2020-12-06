@@ -1,4 +1,56 @@
-const { groupGrade, findAvgScore, findMaxMinScore } = require("./member.util");
+const {
+  groupGrade,
+  findAvgScore,
+  findMaxMinScore,
+  mapDataMember,
+} = require("./member.util");
+
+describe("mapDataMember", () => {
+  it("should map data of member", () => {
+    const mock_data = [
+      {
+        members: [
+          {
+            _id: "5fcb3506ffac10063d4adad6",
+            member_name: "G1-1",
+            score: 90,
+            group_id: "5fcb34e1ffac10063d4adad2",
+            __v: 0,
+          },
+        ],
+        _id: "5fcb34e1ffac10063d4adad2",
+        group_name: "G1",
+        __v: 4,
+      },
+      {
+        members: [],
+        _id: "5fcb34e9ffac10063d4adad5",
+        group_name: "G4",
+        __v: 0,
+      },
+    ];
+
+    const actual_data = mapDataMember(mock_data);
+    const expected_data = [
+      {
+        group_name: "G1",
+        members: [
+          {
+            member_name: "G1-1",
+            score: 90,
+            grade: "A",
+          },
+        ],
+      },
+      {
+        group_name: "G4",
+        members: "N/A",
+      },
+    ];
+
+    expect(actual_data).toEqual(expected_data);
+  });
+});
 
 describe("groupGrade", () => {
   it("score more than or equal 80 should return grade A", () => {
