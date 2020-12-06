@@ -1,4 +1,4 @@
-const { groupGrade, findAvgScore, findMaxMinScore } = require("./index");
+const { groupGrade, findAvgScore, findMaxMinScore } = require("./member.util");
 
 describe("groupGrade", () => {
   it("score more than or equal 80 should return grade A", () => {

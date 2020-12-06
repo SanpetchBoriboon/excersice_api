@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const http = require("http-status");
 const groupModel = require("../models/group.model");
+const { groupUtil } = require("../utils");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -8,7 +9,8 @@ router.get("/", async (req, res, next) => {
     if (!data) {
       return res.status(http.NOT_FOUND).send([]);
     }
-    res.status(http.OK).send(data);
+    const payload = groupUtil.mapGrop(data);
+    res.status(http.OK).send(payload);
   } catch (error) {
     res.status(http.BAD_REQUEST).send(error);
   }
