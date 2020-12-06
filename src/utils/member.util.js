@@ -8,15 +8,12 @@ function mapDataMember(data) {
       };
     });
 
-    if (member_mapping.length === 0) {
-      return {
-        group_name: groupMember.group_name,
-        members: "N/A",
-      };
-    }
     return {
       group_name: groupMember.group_name,
       members: member_mapping,
+      average_score: findAvgScore(groupMember.members),
+      max_score: findMaxMinScore(groupMember.members).max_score,
+      min_score: findMaxMinScore(groupMember.members).min_score,
     };
   });
 

@@ -5,7 +5,7 @@ const MemberModel = require("../models/member.model");
 
 const { memberUtil } = require("../utils");
 
-const { mapDataMember, findAvgScore, findMaxMinScore } = memberUtil;
+const { mapDataMember } = memberUtil;
 
 router.get("/get_all_member_group", async (req, res, next) => {
   try {
@@ -19,7 +19,7 @@ router.get("/get_all_member_group", async (req, res, next) => {
     const payload = {
       group_member: members,
     };
-    res.status(http.OK).send(members);
+    res.status(http.OK).send(payload);
   } catch (error) {
     res.status(http.BAD_REQUEST).send(error);
   }
@@ -37,13 +37,8 @@ router.get("/:group_id/get_member_group", async (req, res, next) => {
       return res.status(http.NOT_FOUND).send([]);
     }
     const members = mapDataMember([data]);
-    const average_score = findAvgScore(data.members);
-    const max_min_score = findMaxMinScore(data.members);
     const payload = {
       group_member: members,
-      average_score: average_score,
-      max_score: max_min_score.max_score,
-      min_score: max_min_score.min_score,
     };
     res.status(http.OK).send(payload);
   } catch (error) {

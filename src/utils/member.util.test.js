@@ -41,13 +41,18 @@ describe("mapDataMember", () => {
             grade: "A",
           },
         ],
+        average_score: 90,
+        max_score: 90,
+        min_score: 90,
       },
       {
         group_name: "G4",
-        members: "N/A",
+        members: [],
+        average_score: "N/A",
+        max_score: "N/A",
+        min_score: "N/A",
       },
     ];
-
     expect(actual_data).toEqual(expected_data);
   });
 });
