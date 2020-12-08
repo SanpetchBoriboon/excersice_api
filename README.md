@@ -5,9 +5,8 @@
 - Create .env file in root project
 
 ```
-  USERNAME=root
-  PASSWORD=root
-  DATABASE=excersice
+MONGODB_URL=mongodb+srv://root:root@cluster0.isd57.mongodb.net/excersice?retryWrites=true&w=majority
+PORT=5000
 ```
 
 - input yarn install in terminal

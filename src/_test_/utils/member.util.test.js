@@ -3,7 +3,7 @@ const {
   findAvgScore,
   findMaxMinScore,
   mapDataMember,
-} = require("./member.util");
+} = require("../../utils/member.util");
 
 describe("mapDataMember", () => {
   it("should map data of member", () => {
