@@ -1,4 +1,4 @@
-const { mapDataGrop } = require("./group.util");
+const { mapDataGrop } = require("../../utils/group.util");
 
 describe("mapDataGrop", () => {
   it("should map data of group", () => {
