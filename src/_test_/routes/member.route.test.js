@@ -58,7 +58,6 @@ describe("testing-member-routes", () => {
     const { body, status } = await request(app).get(
       "/api/member/5fcb34e1ffac10063d4adad2/get_member_group"
     );
-    console.log(JSON.stringify(body));
     const expected = {
       group_member: [
         {
