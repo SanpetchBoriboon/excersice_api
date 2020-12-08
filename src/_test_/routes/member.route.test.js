@@ -53,4 +53,30 @@ describe("testing-member-routes", () => {
     expect(status).toBe(200);
     expect(body).toEqual(expected);
   });
+
+  it("GET /get_member_group - success", async () => {
+    const { body, status } = await request(app).get(
+      "/api/member/5fcb34e1ffac10063d4adad2/get_member_group"
+    );
+    console.log(JSON.stringify(body));
+    const expected = {
+      group_member: [
+        {
+          group_name: "G1",
+          members: [
+            { member_name: "G1-1", score: 90, grade: "A" },
+            { member_name: "G1-2", score: 85, grade: "A" },
+            { member_name: "G1-3", score: 80, grade: "A" },
+            { member_name: "G1-4", score: 70, grade: "B" },
+          ],
+          average_score: 81.25,
+          max_score: 90,
+          min_score: 70,
+        },
+      ],
+    };
+
+    expect(status).toBe(200);
+    expect(body).toEqual(expected);
+  });
 });
